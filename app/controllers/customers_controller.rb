@@ -60,6 +60,7 @@ class CustomersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
+      # byebug - see https://medium.com/le-wagon-tokyo/debugging-with-byebug-gem-6a47b2a210bb
       @customer = Customer.find(params[:id])
     end
 
