@@ -72,6 +72,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.38.0)
       addressable
       matrix
@@ -89,6 +90,8 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    email_validator (2.2.4)
+      activemodel
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -126,6 +129,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.14.1-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.14.1-x86_64-linux)
       racc (~> 1.4)
     public_suffix (5.0.1)
@@ -178,6 +183,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.0-x86_64-darwin)
     sqlite3 (1.6.0-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
@@ -207,13 +213,16 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
   bootsnap
+  byebug (~> 11.1)
   capybara
   cssbundling-rails
   debug
+  email_validator
   jbuilder
   jsbundling-rails
   puma (~> 5.0)
@@ -228,7 +237,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.1p31
 
 BUNDLED WITH
    2.4.5
