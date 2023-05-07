@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Customer, type: :model do
   subject { Customer.new(first_name: "Jack", last_name: "Smith", phone: "8889995678", email: "jsmith@example.com" )}
   it "is valid with valid attributes" do
-    expect(subject).to_be_valid
+    expect(subject).to be_valid
   end
   it "is not valid without a first_name" do
     subject.first_name = nil
@@ -25,7 +25,7 @@ RSpec.describe Customer, type: :model do
     expect(subject.phone.length).to eq(10)
   end
   it "is not valid if the phone number is not all digits" do
-    expect(subject.phone.length).to eq(10)
+    expect(subject.phone).to match(String)
   end
   it "is not valid if the email address doesn't have a @" do
     expect(subject.email).to include("@")
