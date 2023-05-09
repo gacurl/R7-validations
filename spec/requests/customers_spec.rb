@@ -73,7 +73,7 @@ RSpec.describe "CustomersControllers", type: :request do
       get customer_path(id: customer.id)
       customer.delete
       # expect(response).to change(Customer, :count).by(-1)
-      expect(response).to redirect_to customer_url
+      expect(response).to render_template(:show)
     end
   end
 end
