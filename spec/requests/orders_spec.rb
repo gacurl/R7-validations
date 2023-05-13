@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Orders", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
-  end
+  # describe "get orders_path" do
+  #   it "renders the index view" do
+  #     FactoryBot.create_list(:customer, 10)
+  #     get customers_path
+  #     expect(response).to render_template(:index)
+  #   end
+  # end
 end
