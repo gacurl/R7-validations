@@ -1,12 +1,14 @@
 class OrdersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_order, only: %i[ show edit update destroy ]
+  
 
   def index
     @orders = Order.all
   end
 
   def show
+    @orders = Order.all
   end
 
   def new
