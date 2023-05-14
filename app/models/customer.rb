@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   validates :phone, length: { is: 10 }
   validates :email, presence: true, email: true
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"
