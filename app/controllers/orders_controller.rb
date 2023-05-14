@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-  before_action :set_order, only: %i[ show ]
+  before_action :set_order, only: %i[ show edit update destroy ]
 
   def index
     @orders = Order.all
@@ -27,6 +27,12 @@ class OrdersController < ApplicationController
   end
 
   def update
+    if @order.update(order_params)
+      flash.notice = "The order record was updated successfully."
+      redirect_to @order
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
