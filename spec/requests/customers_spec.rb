@@ -20,8 +20,7 @@ RSpec.describe "CustomersControllers", type: :request do
   end
   describe "get new_customer_path" do
     it "renders the :new template" do
-      customer = FactoryBot.create(:customer)
-      get new_customer_path(id: customer.id)
+      get new_customer_path
       expect(response).to render_template(:new)
     end
   end
@@ -30,6 +29,10 @@ RSpec.describe "CustomersControllers", type: :request do
       customer = FactoryBot.create(:customer)
       get edit_customer_path(id: customer.id)
       expect(response).to render_template(:edit)
+    end
+    it "redirects to the index path if the customer_id is invalid" do
+      get edit_customer_path(id: 5_000_000) # an ID that doesn't exist (could be a neg num)
+      expect(response).to redirect_to customers_path
     end
   end
   describe "post customers_path with valid data" do
