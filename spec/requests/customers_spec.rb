@@ -20,8 +20,7 @@ RSpec.describe "CustomersControllers", type: :request do
   end
   describe "get new_customer_path" do
     it "renders the :new template" do
-      customer = FactoryBot.create(:customer)
-      get new_customer_path(id: customer.id)
+      get new_customer_path
       expect(response).to render_template(:new)
     end
   end
@@ -30,6 +29,10 @@ RSpec.describe "CustomersControllers", type: :request do
       customer = FactoryBot.create(:customer)
       get edit_customer_path(id: customer.id)
       expect(response).to render_template(:edit)
+    end
+    it "redirects to the index path if the customer_id is invalid" do
+      get edit_customer_path(id: 5_000_000) # an ID that doesn't exist (could be a neg num)
+      expect(response).to redirect_to customers_path
     end
   end
   describe "post customers_path with valid data" do
@@ -53,7 +56,7 @@ RSpec.describe "CustomersControllers", type: :request do
     it "updates an entry and redirects to the show path for the customer" do
       customer = FactoryBot.create(:customer)
       customer_attributes = {first_name: "John"}
-      put "/customers/#{customer.id}", params: {customer: customer_attributes}
+      put customer_path(id: customer.id), params: {customer: customer_attributes}
       customer.reload
       expect(customer.first_name).to eq("John")
       expect(response).to redirect_to customer_path(id: Customer.last.id)
@@ -69,12 +72,11 @@ RSpec.describe "CustomersControllers", type: :request do
   end
   describe "delete a customer record" do
     it "deletes a customer record" do
-      customer = FactoryBot.create(:customer)
-      get customer_path(id: customer.id)      
-      expect do 
-        customer.delete
+      customer = FactoryBot.create(:customer)    
+      expect do
+        delete customer_path(id: customer.id)
       end.to change(Customer, :count).by(-1)
-      expect(response).to render_template(:show)
+      expect(response).to redirect_to(customers_path)
     end
   end
 end
