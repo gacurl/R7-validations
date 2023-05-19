@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <div class="container">
+      <div class="banner mt-4 p-5 bg-primary text-white rounded">
+        <h1>Welcome to MarMart</h1>
+        <h4>Providing you service with a smile</h4>
+      </div>
+    </div> <%# /container %>
+    
+    <% if flash[:alert].present? %>
+      <p class="my_alert"><%= flash[:alert] %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
