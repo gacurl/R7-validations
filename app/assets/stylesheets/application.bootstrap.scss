@@ -11,3 +11,11 @@ $fa-font-path: "./webfonts";
 .my_alert {
   color: red;
 }
+
+@font-face {
+    font-family: 'Franchise';
+    src: url('Franchise.ttf');
+ }
+ h1 {
+    font-family: 'Franchise';
+  }
