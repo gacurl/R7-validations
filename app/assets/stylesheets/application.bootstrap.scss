@@ -15,10 +15,16 @@ $fa-font-path: "./webfonts";
 @font-face {
     font-family: 'Franchise';
     src: url('Franchise.ttf');
+    font-family: 'Finlandica';
+    src: url('Finlandica.ttf');
 }
 
+* {
+  font-family: 'Finlandica';
+}
+  
 body {
-  background-color: #F0EEED;
+  background-color: #D3D3D3;
 }
 
 .navbar {
@@ -29,10 +35,9 @@ body {
   color: whitesmoke;
 }
 
-
-.banner {
-  font-family: 'Franchise';
+.dropdown-menu {
+  background-color: #F79540;
+  padding: 0.5rem;
 }
-
 
 
