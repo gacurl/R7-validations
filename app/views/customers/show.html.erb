@@ -2,33 +2,40 @@
 
 <%= render @customer %>
 
-<table>
-  <thead>
-  <tr>
-    <th colspan="9">Product name</th>
-    <th colspan="9">Product count</th>
-    <th colspan="6">Customer name</th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <% @customer.orders.each do |order| %>
+<div class="container card shadow p-3 mb-5 bg-white rounded">
+  <table class="table text-center">
+    <thead>
       <tr>
-        <td colspan="9"><%= order.product_name %></td>
-        <td colspan="9"><%= order.product_count %></td>
-        <td colspan="6"><%= order.customer.full_name %></td>
-        
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure?"} %></td>
+        <th scope="col">Product name</th>
+        <th scope="col">Product count</th>
+        <th scope="col">Customer name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
+    <tbody>
+      <% @customer.orders.each do |order| %>
+        <tr>
+          <td><%= order.product_name %></td>
+          <td><%= order.product_count %></td>
+          <td><%= order.customer.full_name %></td>
+        </tr>
+    </tbody>
+  </table>
+</div> <%# /class="card shadow p-3 mb-5 bg-white rounded" %>
+      <div class="container card shadow mb-5 p-3">
+        <ul class="list-group list-group-horizontal text-center">
+          <li class="list-group-item flex-fill"><%= button_to 'Show', order, class: "btn btn-outline-secondary" %></li>
+          <li class="list-group-item flex-fill"><%= button_to 'Edit', edit_order_path(order), class: "btn btn-outline-primary" %></li>
+          <li class="list-group-item flex-fill"><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this order?"}, class: "btn btn-outline-danger"%></li>
+        </ul>
+      <% end %>
+      </div>
+    </div> <%# /class="card shadow p-3 mb-5 bg-white rounded" %>
 
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+<div class="container card shadow p-3 bg-white rounded">
+  <ul class="list-group list-group-horizontal text-center">
+    <li class="list-group-item flex-fill"><%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn btn-outline-secondary" %></li>
+    <li class="list-group-item flex-fill"><%= link_to "Back to customers", customers_path, class: "btn btn-outline-primary" %></li>
+    <li class="list-group-item flex-fill"><%= button_to "Destroy this customer", @customer, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this customer?"}, class: "btn btn-outline-danger" %>
+  </ul>
 </div>

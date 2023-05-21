@@ -25,7 +25,6 @@
     <%= form.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
   </div>
 
-
   <div>
     <%= form.button "Create Order", type: "submit", :class=> "btn btn-primary mt-2" %>
   </div>
