@@ -20,18 +20,10 @@
           <td><%= order.product_count %></td>
           <td><%= order.customer.full_name %></td>
         </tr>
+      <% end %> <%# /@customer.orders each block  %>
     </tbody>
   </table>
-</div> <%# /class="card shadow p-3 mb-5 bg-white rounded" %>
-      <div class="container card shadow mb-5 p-3">
-        <ul class="list-group list-group-horizontal text-center">
-          <li class="list-group-item flex-fill"><%= button_to 'Show', order, class: "btn btn-outline-secondary" %></li>
-          <li class="list-group-item flex-fill"><%= button_to 'Edit', edit_order_path(order), class: "btn btn-outline-primary" %></li>
-          <li class="list-group-item flex-fill"><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this order?"}, class: "btn btn-outline-danger"%></li>
-        </ul>
-      <% end %>
-      </div>
-    </div> <%# /class="card shadow p-3 mb-5 bg-white rounded" %>
+</div> <%# /customer card container" %>
 
 <div class="container card shadow p-3 bg-white rounded">
   <ul class="list-group list-group-horizontal text-center">
