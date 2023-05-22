@@ -1,16 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Customers</h1>
-<h2><%= link_to "Orders", orders_path %></h2>
+<div class="container mb-5">
+  <h1>Customers</h1>
+  <h2><%= link_to "Orders", orders_path %></h2>
 
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
-</div>
+  <div id="customers">
+    <% @customers.each do |customer| %>
+      <%= render customer %>
+      <p>
+        <%= link_to "Show this customer", customer %>
+      </p>
+    <% end %>
+  </div>
 
+  <%= link_to "New customer", new_customer_path %>
 
-<%= link_to "New customer", new_customer_path %>
+</div> <%# /container %>

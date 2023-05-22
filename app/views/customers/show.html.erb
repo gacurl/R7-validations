@@ -1,8 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @customer %>
-
 <div class="container card shadow p-3 mb-5 bg-white rounded">
+
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @customer %>
+
   <table class="table text-center">
     <thead>
       <tr>
@@ -36,6 +37,6 @@
   <ul class="list-group list-group-horizontal text-center">
     <li class="list-group-item flex-fill"><%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn btn-outline-secondary" %></li>
     <li class="list-group-item flex-fill"><%= link_to "Back to customers", customers_path, class: "btn btn-outline-primary" %></li>
-    <li class="list-group-item flex-fill"><%= button_to "Destroy this customer", @customer, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this customer?"}, class: "btn btn-outline-danger" %>
+    <li class="list-group-item flex-fill"><%= button_to "Delete this customer account", @customer, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this customer?"}, class: "btn btn-outline-danger"%>
   </ul>
 </div>
