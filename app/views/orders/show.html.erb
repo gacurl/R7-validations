@@ -12,11 +12,10 @@
     </thead>
 
     <tbody>
-      <% @orders.each do |order| %>
         <tr>
-          <td><%= order.customer.full_name %></td>
-          <td><%= order.product_name %></td>
-          <td><%= order.product_count %></td>
+          <td><%= @order.customer.full_name %></td>
+          <td><%= @order.product_name %></td>
+          <td><%= @order.product_count %></td>
         </tr>
     </tbody>
   </table>
@@ -24,10 +23,10 @@
 
 <div class="container card shadow mb-5 p-3">
       <ul class="list-group list-group-horizontal text-center">
-        <li class="list-group-item flex-fill"><%= button_to 'Show', orders_path, class: "btn btn-outline-secondary" %></li>
-        <li class="list-group-item flex-fill"><%= button_to 'Edit', edit_order_path(order), class: "btn btn-outline-primary" %></li>
-        <li class="list-group-item flex-fill"><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this order?"}, class: "btn btn-outline-danger"%></li>
+        <li class="list-group-item flex-fill"><%= link_to 'Show orders', orders_path, class: "btn btn-outline-secondary" %></li>
+        <li class="list-group-item flex-fill"><%= link_to 'Edit this order', edit_order_path(@order), class: "btn btn-outline-primary" %></li>
+        <li class="list-group-item flex-fill"><%= button_to "Destroy", @order, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this order?"}, class: "btn btn-outline-danger"%></li>
       </ul>
-  <% end %>
+
 </div> <%# /button & link card container" %>
 

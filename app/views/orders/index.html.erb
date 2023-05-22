@@ -3,15 +3,15 @@
 <div class="container">
   <h1>Orders</h1>
 
+  <% @orders.each do |order| %>
     <div id="orders">
-      <% @orders.each do |order| %>
         <%= render order %>
         <p>
           <%= link_to "Show this order", order %>
         </p>
-      <% end %>
     </div> <%# /orders %>
+  <% end %>
 
 
-<%= link_to "New order", new_order_path %>
+<h3><%= link_to "New order", new_order_path, class: "pb-5" %></h3>
 </div> <%# /container %>
