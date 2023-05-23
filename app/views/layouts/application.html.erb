@@ -13,12 +13,12 @@
   <body>
     <%= render 'layouts/navbar' %>
     <div class="container">
-      <div class="banner mt-4 p-5 text-white rounded" style="background-color: #F79540;" >
-        <h1>Welcome to MarMart</h1>
+      <div class="banner-background img-fluid mt-4 p-5 text-white rounded" style="background-color: #F79540;">
+        <h1>Welcome to MarMart </h1>
         <h4>Providing you service with a smile</h4>
       </div>
     </div> <%# /container %>
-    
+
     <% if flash[:alert].present? %>
       <p class="my_alert"><%= flash[:alert] %></p>
     <% end %>

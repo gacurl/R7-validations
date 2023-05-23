@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container">
-  <h1>Orders</h1>
+  <h1 class="col text-center">Orders</h1>
 
   <% @orders.each do |order| %>
     <div id="orders">
@@ -12,6 +12,9 @@
     </div> <%# /orders %>
   <% end %>
 
-
-<h3><%= link_to "New order", new_order_path, class: "pb-5" %></h3>
+  <div class="container">
+    <div class="row">
+      <h3 class="col text-center"><%= link_to "New order", new_order_path, class: "pb-5" %></h3>
+    </div>
+  </div> <%# /container %>
 </div> <%# /container %>
