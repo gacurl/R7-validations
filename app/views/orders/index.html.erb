@@ -1,14 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Orders</h1>
+<div class="container">
+  <h1 class="col text-center">Orders</h1>
 
-<div id="orders">
   <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
+    <div id="orders">
+        <%= render order %>
+        <p>
+          <%= link_to "Show this order", order %>
+        </p>
+    </div> <%# /orders %>
   <% end %>
-</div>
 
-<%= link_to "New order", new_order_path %>
+  <div class="container">
+    <div class="row">
+      <h3 class="col text-center"><%= link_to "New order", new_order_path, class: "pb-5" %></h3>
+    </div>
+  </div> <%# /container %>
+</div> <%# /container %>

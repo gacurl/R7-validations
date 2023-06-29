@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm sticky-top">
+  <div class="container-fluid mb-0">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Customers
+        </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'List Customers', customers_path, class: "container-fluid btn btn-warning" %></li>
+            <li><%= link_to 'New Customer', new_customer_path, class: "container-fluid btn btn-warning mt-1" %></li>
+          </ul> <%# dropdown-menu %>
+      </li> <%# Customers nav-item dropdown %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Orders
+        </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'List Orders', orders_path, class: "container-fluid btn btn-warning" %></li>
+            <li><%= link_to 'New Order', new_order_path, class: "container-fluid btn btn-warning mt-1" %></li>
+          </ul>
+      </li> <%# Orders nav-item dropdown %>
+    </ul>
+  </div> <%# container-fluid %>
+</nav>

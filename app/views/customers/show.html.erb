@@ -1,34 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<div class="container card shadow p-3 mb-5 bg-white rounded">
 
-<%= render @customer %>
+  <p style="color: green"><%= notice %></p>
 
-<table>
-  <thead>
-  <tr>
-    <th colspan="9">Product name</th>
-    <th colspan="9">Product count</th>
-    <th colspan="6">Customer name</th>
-  </tr>
-  </thead>
+  <%= render @customer %>
 
-  <tbody>
-    <% @customer.orders.each do |order| %>
+  <table class="table text-center">
+    <thead>
       <tr>
-        <td colspan="9"><%= order.product_name %></td>
-        <td colspan="9"><%= order.product_count %></td>
-        <td colspan="6"><%= order.customer.full_name %></td>
-        
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure?"} %></td>
+        <th scope="col">Product name</th>
+        <th scope="col">Product count</th>
+        <th scope="col">Customer name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
+    <tbody>
+      <% @customer.orders.each do |order| %>
+        <tr>
+          <td><%= order.product_name %></td>
+          <td><%= order.product_count %></td>
+          <td><%= order.customer.full_name %></td>
+        </tr>
+      <% end %> <%# /@customer.orders each block  %>
+    </tbody>
+  </table>
+</div> <%# /customer card container" %>
 
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+<div class="container card shadow p-3 bg-white rounded">
+  <ul class="list-group list-group-horizontal text-center">
+    <li class="list-group-item flex-fill"><%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn btn-outline-secondary" %></li>
+    <li class="list-group-item flex-fill"><%= link_to "Back to customers", customers_path, class: "btn btn-outline-primary" %></li>
+    <li class="list-group-item flex-fill"><%= button_to "Delete this customer account", @customer, method: :delete, data: { turbo_confirm: "Are you sure you want to remove this customer?"}, class: "btn btn-outline-danger"%>
+  </ul>
 </div>

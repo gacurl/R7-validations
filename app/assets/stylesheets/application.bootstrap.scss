@@ -11,3 +11,38 @@ $fa-font-path: "./webfonts";
 .my_alert {
   color: red;
 }
+
+@font-face {
+    font-family: 'Franchise';
+    src: url('Franchise.ttf');
+    font-family: 'Finlandica';
+    src: url('Finlandica.ttf');
+}
+
+* {
+  font-family: 'Finlandica';
+}
+  
+body {
+  background-color: #D3D3D3;
+}
+
+.navbar {
+  background-color: #8B1874;
+}
+
+.nav-link {  
+  color: whitesmoke;
+}
+
+.dropdown-menu {
+  background-color: #F79540;
+  padding: 0.5rem;
+}
+
+.banner-background {
+  background-image: url('supermarket.jpg');
+  background-size: cover;
+}
+
+
